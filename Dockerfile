@@ -1,8 +1,8 @@
 FROM alpine:3.14 AS builder
 LABEL maintainer="knthmn@outlook.com"
 ARG RCLONE_VERSION=v1.53.3
-ARG BORG_VERSION=1.1.17
-ARG BORGMATIC_VERSION=1.5.18
+ARG BORG_VERSION=1.2.7
+ARG BORGMATIC_VERSION=1.8.7
 RUN apk add \
         py3-pip \
         python3-dev \
@@ -42,7 +42,6 @@ COPY --from=builder \
     /usr/bin/borgfs \
     /usr/bin/borgmatic \
     /usr/bin/generate-borgmatic-config  \
-    /usr/bin/upgrade-borgmatic-config  \
     /usr/bin/validate-borgmatic-config \
     /usr/bin/rclone \
     /usr/bin/ 
